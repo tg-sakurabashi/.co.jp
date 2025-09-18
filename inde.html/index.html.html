@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>桜橋サポート事務所 | Sakurabashi Support Office</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .language-selector:hover .language-dropdown { display: block; }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .flag-icon {
+            width: 24px; height: 16px; margin-right: 8px;
+            display: inline-block; vertical-align: middle;
+        }
+        .hero-image {
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://static.photos/office/1200x630/1');
+            background-size: cover; 
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .fade-in { animation: fadeIn 1s ease-in; }
+        @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+        .gradient-text {
+            background: linear-gradient(45deg, #ec4899, #f43f5e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Language Selector -->
+    <div class="bg-gray-100 py-2 px-4 flex justify-end">
+        <div class="language-selector relative">
+            <button class="flex items-center text-gray-700 hover:text-gray-900">
+                <span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/jp.png'); background-size: cover;"></span>
+                <span>日本語</span>
+                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="language-dropdown hidden absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg z-50">
+                <a href="#" onclick="changeLanguage('ja')" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 flex items-center">
+                    <span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/jp.png'); background-size: cover;"></span>
+                    <span>日本語</span>
+                </a>
+                <a href="#" onclick="changeLanguage('en')" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 flex items-center">
+                    <span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/us.png'); background-size: cover;"></span>
+                    <span>English</span>
+                </a>
+                <a href="#" onclick="changeLanguage('id')" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 flex items-center">
+                    <span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/id.png'); background-size: cover;"></span>
+                    <span>Bahasa Indonesia</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-bridge text-pink-500 text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-900">桜橋サポート事務所</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="hover:text-pink-600 px-3 py-2 text-sm font-medium" data-aos="fade-down">私たちについて</a>
+                    <a href="#services" class="hover:text-pink-600 px-3 py-2 text-sm font-medium" data-aos="fade-down" data-aos-delay="100">サービス</a>
+                    <a href="#strengths" class="hover:text-pink-600 px-3 py-2 text-sm font-medium" data-aos="fade-down" data-aos-delay="200">強み</a>
+                    <a href="#contact" class="hover:text-pink-600 px-3 py-2 text-sm font-medium" data-aos="fade-down" data-aos-delay="300">お問い合わせ</a>
+                    <a href="#contact" class="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 transition" data-aos="fade-down" data-aos-delay="400">相談する</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-white pb-4 px-4">
+            <a href="#about" class="block py-2 hover:text-pink-600">私たちについて</a>
+            <a href="#services" class="block py-2 hover:text-pink-600">サービス</a>
+            <a href="#strengths" class="block py-2 hover:text-pink-600">強み</a>
+            <a href="#contact" class="block py-2 hover:text-pink-600">お問い合わせ</a>
+            <a href="#contact" class="block bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 mt-2 text-center">相談する</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-image text-white py-20 md:py-32 fade-in" data-aos="fade">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">フィリピン人特定技能労働者の<br class="md:hidden">サポート専門</h1>
+            <p class="text-xl md:text-2xl mb-8" data-aos="fade-up" data-aos-delay="100">特定技能労働者と受け入れ企業の架け橋として<br>安心のサポートを提供します</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="#contact" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-md transform hover:scale-105 transition">
+                    <span data-lang="ja">無料相談はこちら</span>
+                    <span data-lang="en" style="display:none">Free Consultation</span>
+                    <span data-lang="id" style="display:none">Konsultasi Gratis</span>
+                </a>
+                <a href="#services" class="bg-white hover:bg-gray-100 text-pink-600 font-bold py-3 px-8 rounded-md transform hover:scale-105 transition">
+                    <span data-lang="ja">サービスを見る</span>
+                    <span data-lang="en" style="display:none">View Services</span>
+                    <span data-lang="id" style="display:none">Lihat Layanan</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold">私たちについて</h2>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-2"></div>
+            </div>
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-up">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold mb-4 gradient-text">桜橋サポート事務所の使命</h3>
+                        <p class="text-gray-600 mb-4">私たちは、主にフィリピン人特定技能労働者と日本企業の間の架け橋として、双方にとって働きやすい環境を築くことです。</p>
+                        <p class="text-gray-600">文化の違いや言語の壁を越え、労働者が安心して働き、企業が円滑に受け入れられるよう、支援のサービスを提供しています。</p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="http://static.photos/nature/640x360/42" alt="架け橋の写真" class="rounded-lg shadow-md w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold">サービス内容</h2>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-2"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md" data-aos="flip-up">
+                    <i class="fas fa-user-tie text-pink-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">特定技能労働者サポート</h3>
+                    <p class="text-gray-600">職場での支援、生活相談対応を行います。</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md" data-aos="flip-up" data-aos-delay="100">
+                    <i class="fas fa-building text-pink-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">受け入れ企業サポート</h3>
+                    <p class="text-gray-600">母国語支援を通じて、職場での円滑なコミュニケーションを支援します。</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md" data-aos="flip-up" data-aos-delay="200">
+                    <i class="fas fa-language text-pink-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">通訳・翻訳サービス</h3>
+                    <p class="text-gray-600">日本語・タガログ語・英語の通訳・翻訳サービスを提供します。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strengths Section -->
+    <div id="strengths" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold">私たちの強み</h2>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-2"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="zoom-in">
+                    <i class="fas fa-users text-pink-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">フィリピン人専門</h3>
+                    <p class="text-gray-600">文化・習慣を理解した専門スタッフが対応します。</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-comments text-pink-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">多言語対応</h3>
+                    <p class="text-gray-600">日本語・タガログ語・英語・インドネシア語に対応。</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-coins text-pink-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">コスト</h3>
+                    <p class="text-gray-600">合理的な料金で高品質なサービスを提供します。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="py-16 bg-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold">お客様の声</h2>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-2"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-right">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-tie text-pink-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">株式会社ABC 人事部</h4>
+                            <p class="text-sm text-gray-500">製造業 特定技能労働者受け入れ企業</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "桜橋サポート事務所のサポートでコミュニケーションが改善されました。労働者の定着率も向上し、生産性が上がりました。"
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-left">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-pink-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Maria S. さん</h4>
+                            <p class="text-sm text-gray-500">フィリピン人特定技能労働者 (2年目)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "日本での生活で困った時、母国語で相談できて安心でした。職場での問題も迅速に解決してくれて、とても感謝しています。"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold">お問い合わせ</h2>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-2"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-pink-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">電話</h3>
+                                <p class="text-gray-600">090-2640-5208</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-pink-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">メール</h3>
+                                <p class="text-gray-600">tg.ponsus.office@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-pink-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">住所</h3>
+                                <p class="text-gray-600">千葉県千葉市中央区今井2-12-1 MGエクセリア蘇我401</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-pink-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">営業時間</h3>
+                                <p class="text-gray-600">月曜日～金曜日 8:00～19:00 (土日祝休み)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <form class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="name">お名前</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="email">メールアドレス</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="phone">電話番号</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="message">お問い合わせ内容</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-pink-600 text-white py-2 px-4 rounded-md hover:bg-pink-700 transition">送信する</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold">よくある質問</h2>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-2"></div>
+            </div>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up">
+                    <h3 class="font-semibold mb-2">特定技能労働者受け入れの手続きはどのぐらいかかりますか？</h3>
+                    <p class="text-gray-600">一般的には6か月～1年間程度かかります。企業の準備状況や申請時期によって異なりますので、まずご相談ください。</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-semibold mb-2">サポートの費用はどのくらいですか？</h3>
+                    <p class="text-gray-600">サービス内容や期間によって異なります。まずは無料相談でご要望をお聞きし、最適なプランをご提案します。</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">桜橋サポート事務所</h3>
+                    <p class="text-gray-400">フィリピン人特定技能労働者と日本企業の架け橋として、安心のサポートを提供します。</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">サービス</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">労働者サポート</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">企業サポート</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">通訳・翻訳</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">リンク</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">プライバシーポリシー</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">利用規約</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">特定商取引法に基づく表示</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">SNS</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/takashi.hasegawa.39545464" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 桜橋サポート事務所. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language change function
+        function changeLanguage(lang) {
+            localStorage.setItem('preferredLanguage', lang);
+            location.reload();
+        }
+
+        // Set initial language
+        document.addEventListener('DOMContentLoaded', function() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'ja';
+            const elements = document.querySelectorAll('[data-lang]');
+            
+            elements.forEach(el => {
+                if (el.getAttribute('data-lang') === preferredLanguage) {
+                    el.style.display = 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            // Update language selector display
+            const langDisplay = document.querySelector('.language-selector span:not(.flag-icon)');
+            if (preferredLanguage === 'en') {
+                langDisplay.textContent = 'English';
+                document.querySelector('.language-selector .flag-icon').style.backgroundImage = 'url("https://flagcdn.com/w20/us.png")';
+            } else if (preferredLanguage === 'id') {
+                langDisplay.textContent = 'Bahasa Indonesia';
+                document.querySelector('.language-selector .flag-icon').style.backgroundImage = 'url("https://flagcdn.com/w20/id.png")';
+            } else {
+                langDisplay.textContent = '日本語';
+                document.querySelector('.language-selector .flag-icon').style.backgroundImage = 'url("https://flagcdn.com/w20/jp.png")';
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
